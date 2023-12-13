@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb6sb2imv1g8r"]
+
+[ext_resource type="Texture2D" uid="uid://b0wq2gohg76ri" path="res://art/CavernBackdrop_far.png" id="1_6lnb6"]
+[ext_resource type="Texture2D" uid="uid://h28iuw667u5c" path="res://art/CavernBackdrop_close.png" id="2_vao5j"]
+
+[sub_resource type="Gradient" id="Gradient_y03nj"]
+offsets = PackedFloat32Array()
+colors = PackedColorArray()
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_re1va"]
+gradient = SubResource("Gradient_y03nj")
+
+[node name="backdrop_cavern" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="BG" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(348, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BG"]
+position = Vector2(174, 72)
+scale = Vector2(5.4375, 3)
+texture = SubResource("GradientTexture2D_re1va")
+
+[node name="Far" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(384, 0)
+
+[node name="CavernBackdropFar" type="Sprite2D" parent="ParallaxBackground/Far"]
+position = Vector2(96, 96)
+texture = ExtResource("1_6lnb6")
+offset = Vector2(0, -24)
+
+[node name="CavernBackdropFar2" type="Sprite2D" parent="ParallaxBackground/Far"]
+position = Vector2(288, 96)
+texture = ExtResource("1_6lnb6")
+offset = Vector2(0, -24)
+
+[node name="Close" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(384, 0)
+
+[node name="CavernBackdropClose" type="Sprite2D" parent="ParallaxBackground/Close"]
+position = Vector2(96, 96)
+texture = ExtResource("2_vao5j")
+offset = Vector2(0, -24)
+
+[node name="CavernBackdropClose2" type="Sprite2D" parent="ParallaxBackground/Close"]
+position = Vector2(288, 96)
+texture = ExtResource("2_vao5j")
+offset = Vector2(0, -24)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground"]
+color = Color(0.00392157, 0.00392157, 0.00392157, 1)

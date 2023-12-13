@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://gjiedy1nqlwr"]
+
+[ext_resource type="Texture2D" uid="uid://yax3utn1oxhu" path="res://art/UI/HealthOrb_BG.png" id="1_mkbyr"]
+[ext_resource type="Script" path="res://UI/health_orb.gd" id="2_dp73y"]
+[ext_resource type="Texture2D" uid="uid://ca0vsdomxdv62" path="res://art/UI/HealthOrb_Fill.png" id="2_k877x"]
+[ext_resource type="Texture2D" uid="uid://cblt860lhi2t2" path="res://art/UI/HealthOrb_Full.png" id="3_ldyqv"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_72gn7"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+spread = 27.95
+initial_velocity_min = 16.05
+initial_velocity_max = 16.05
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[node name="HealthOrb" type="TextureRect"]
+offset_right = 48.0
+offset_bottom = 48.0
+texture = ExtResource("1_mkbyr")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("2_dp73y")
+
+[node name="HealthOrbProgress" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 45.0
+fill_mode = 3
+texture_progress = ExtResource("2_k877x")
+
+[node name="FullTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ldyqv")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="HealthOrbParticles" type="GPUParticles2D" parent="."]
+rotation = -1.5708
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_72gn7")

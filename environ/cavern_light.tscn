@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://c41pd1ryxbr7d"]
+
+[ext_resource type="Texture2D" uid="uid://ci4g5spt8nbfb" path="res://art/WhiteFlame_Magic_BlackAndWhite.png" id="1_3p53p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p42nk"]
+atlas = ExtResource("1_3p53p")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi5t0"]
+atlas = ExtResource("1_3p53p")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vavj0"]
+atlas = ExtResource("1_3p53p")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23gk0"]
+atlas = ExtResource("1_3p53p")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrbqo"]
+atlas = ExtResource("1_3p53p")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1lyy"]
+atlas = ExtResource("1_3p53p")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khjpk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p42nk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi5t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vavj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23gk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrbqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1lyy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_e23hb"]
+offsets = PackedFloat32Array(0, 0.83871)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cytp4"]
+gradient = SubResource("Gradient_e23hb")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="CavernLight" type="Node2D"]
+z_index = -1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_khjpk")
+autoplay = "default"
+frame_progress = 0.353146
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+range_layer_min = -110
+range_layer_max = 100
+texture = SubResource("GradientTexture2D_cytp4")
+texture_scale = 5.0

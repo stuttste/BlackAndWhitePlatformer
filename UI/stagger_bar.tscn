@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6jyy60p4d3sq"]
+
+[ext_resource type="Texture2D" uid="uid://brq8w7fh410hs" path="res://art/UI/StaggerMeter_BG.png" id="1_ot3e2"]
+[ext_resource type="Script" path="res://UI/stagger_ui.gd" id="2_tejgd"]
+[ext_resource type="Texture2D" uid="uid://24xvj60qdgjw" path="res://art/UI/StaggerMeter_Fill.png" id="2_xl23j"]
+[ext_resource type="Texture2D" uid="uid://btpuxkp5c2s64" path="res://art/UI/StaggerMeter_Full.png" id="3_qb72x"]
+
+[node name="StaggerBar" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ot3e2")
+script = ExtResource("2_tejgd")
+
+[node name="RecoveryBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+value = 100.0
+fill_mode = 6
+texture_progress = ExtResource("3_qb72x")
+
+[node name="StaggerProgress" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+fill_mode = 6
+texture_progress = ExtResource("2_xl23j")
